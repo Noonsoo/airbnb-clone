@@ -5,7 +5,7 @@ function SmallCard({ img, location, distance }) {
   return (
     <div className="flex items-center m-2 mt-2 space-x-4 rounded-xl cursor-pointer hover:scale-105 hover:bg-gray-100 transition duration-200 ease-out">
       <div className="relative h-16 w-16 ">
-        <Image className="rounded-lg" src={img} layout="fill" />
+        <Image alt="" className="rounded-lg" src={img} layout="fill" />
       </div>
 
       <div>
