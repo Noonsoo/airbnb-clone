@@ -28,7 +28,7 @@ function Maps({ searchResults }) {
     });
 
     return () => map.remove();
-  }, []);
+  }, [center.latitude, center.longitude]);
 
   // Add markers to the map
 
