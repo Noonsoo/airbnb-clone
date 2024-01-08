@@ -21,6 +21,7 @@ function Header({ placeholder }) {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const [placeholderText, setPlaceholderText] = useState('Search');
 
   const router = useRouter();
 
@@ -63,15 +64,17 @@ function Header({ placeholder }) {
         />
       </div>
       {/* Middle */}
-      <div className=" flex items-center border-2 py-2  rounded-full shadow-sm">
+      <div className=" flex items-center border-2 py-2 ml-2  flex-grow rounded-full shadow-sm">
+        
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="pl-5 text-sm text-gray-600 placeholder-gray-400 bg-transparent flex-grow outline-none"
-          placeholder={placeholder || "Start your search"}
+          className=" pl-5 text-sm text-gray-600 placeholder-gray-400 bg-transparent flex-grow outline-none md:text-lg"
+          placeholder={ "Search"}
+       
           type="text"
         />
-        <SearchIcon className="h-8 hidden md:inline-flex text-white md:mr-2 bg-red-400  rounded-full p-2 cursor-pointer " />
+        <SearchIcon className="h-8 hidden md:inline-flex text-white md:mr-2 bg-red-400   rounded-full p-2 cursor-pointer " />
       </div>
       {/* Right */}
       <div className="flex space-x-4 items-center justify-end text-gray-500  ">
@@ -83,12 +86,14 @@ function Header({ placeholder }) {
         </div>
       </div>
       {search && (
-        <div className="flex flex-col col-span-3 mx-auto">
+        <div className="flex flex-col no-scrollbar col-span-3 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
+            className="ant-calendar-range"
+
           />
 
           <div className="flex items-center mb-4 border-b ">
